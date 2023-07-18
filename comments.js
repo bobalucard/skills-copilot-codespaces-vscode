@@ -28,14 +28,3 @@ app.get("/api/comments", function(req, res) {
     res.json(JSON.parse(data));
   });
 });
-
-app.post("/api/comments", function(req, res) {
-  fs.readFile(COMMENTS_FILE, function(err, data) {
-    if (err) {
-      console.error(err);
-      process.exit(1);
-    }
-
-    var comments = JSON.parse(data);
-    var newComment = {
-      id: Date.now(),
